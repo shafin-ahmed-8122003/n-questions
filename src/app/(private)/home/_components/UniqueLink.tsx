@@ -7,7 +7,7 @@ const UniqueLink = () => {
             <label className="text-xl">Your unique link</label>
             <div className="flex items-center h-12 relative">
                 <Input
-                    value={"https://n-questions.vercel.app/u/shafinahmed1512023"}
+                    value={"https://n-questions.vercel.app/user/shafinahmed1512023"}
                     disabled
                     className="disabled:opacity-100 disabled:cursor-text"
                 />
