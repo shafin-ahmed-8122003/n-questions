@@ -1,7 +1,7 @@
 import landingLogo from "@/public/images/landing_logo.svg";
 import Gap from "@/src/components/Gap";
-import { Button } from "@/src/components/ui/button";
 import Image from "next/image";
+import AuthSection from "./_sections/AuthSection";
 
 const LandingPage = () => {
     return (
@@ -12,16 +12,7 @@ const LandingPage = () => {
                     Get to know yourself from anonymous persons
                 </p>
                 <Gap height={30} />
-                <Button size="lg" className="w-[300px]">
-                    Get Started
-                </Button>
-                <Gap height={10} />
-                <p className="text-lg text-center">
-                    Already have an account?{" "}
-                    <Button size="link" variant="link">
-                        Click here
-                    </Button>
-                </p>
+                <AuthSection />
             </div>
         </main>
     );

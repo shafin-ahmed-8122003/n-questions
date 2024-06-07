@@ -1,13 +1,21 @@
+"use client";
+
+import { api } from "@/convex/_generated/api";
 import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
+import { useQuery } from "convex/react";
 
 const UniqueLink = () => {
+    const currentUser = useQuery(api.users.currentUser);
+
+    console.log(currentUser);
+
     return (
         <>
             <label className="text-xl">Your unique link</label>
             <div className="flex items-center h-12 relative">
                 <Input
-                    value={"https://n-questions.vercel.app/user/shafinahmed1512023"}
+                    value={`https://n-questions.vercel.app/user/${currentUser?.username}`}
                     disabled
                     className="disabled:opacity-100 disabled:cursor-text"
                 />
