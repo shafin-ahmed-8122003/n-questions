@@ -20,7 +20,11 @@ const AuthSection = () => {
 
             {!isAuthenticated && !isLoading && (
                 <>
-                    <SignUpButton mode="modal">
+                    <SignUpButton
+                        mode="modal"
+                        fallbackRedirectUrl="/"
+                        signInFallbackRedirectUrl="/"
+                    >
                         <Button size="lg" className="w-full">
                             Get Started
                         </Button>
@@ -28,7 +32,11 @@ const AuthSection = () => {
                     <Gap height={10} />
                     <p className="text-lg text-center">
                         Already have an account?{" "}
-                        <SignInButton mode="modal">
+                        <SignInButton
+                            mode="modal"
+                            fallbackRedirectUrl="/"
+                            signUpFallbackRedirectUrl="/"
+                        >
                             <Button size="link" variant="link">
                                 Click here
                             </Button>

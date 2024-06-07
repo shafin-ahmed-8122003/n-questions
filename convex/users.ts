@@ -1,3 +1,4 @@
+import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 
 export const currentUser = query({
@@ -42,8 +43,15 @@ export const store = mutation({
         // If it's a new identity, create a new `User`.
         return await ctx.db.insert("users", {
             name: identity.name!,
-            username: identity.subject,
+            isAcceptingMessage: false,
             tokenIdentifier: identity.tokenIdentifier,
         });
+    },
+});
+
+export const updateUser = mutation({
+    args: { userId: v.id("users"), updatedUser: v.any() },
+    handler: async (ctx, args) => {
+        await ctx.db.patch(args.userId, args.updatedUser);
     },
 });

@@ -1,19 +1,22 @@
 "use client";
 
 import { Switch } from "@/src/components/ui/switch";
-import { useState } from "react";
+import { toggle } from "@/src/features/accepting_message/acceptingMessageSlice";
+import { RootState } from "@/src/lib/store";
+import { useDispatch, useSelector } from "react-redux";
 
 const AcceptMessageButton = () => {
-    const [isOn, setState] = useState(false);
+    const isAcceptingMessage = useSelector((state: RootState) => state.isAcceptingMessage);
+    const dispatch = useDispatch();
 
     const checkedChangeHandler = () => {
-        setState((prevState) => !prevState);
+        dispatch(toggle());
     };
 
     return (
         <div className="flex items-center gap-4">
-            <Switch checked={isOn} onCheckedChange={checkedChangeHandler} />
-            <p>Accept Messages: {isOn ? "On" : "Off"}</p>
+            <Switch checked={isAcceptingMessage} onCheckedChange={checkedChangeHandler} />
+            <p>Accept Messages: {isAcceptingMessage ? "On" : "Off"}</p>
         </div>
     );
 };

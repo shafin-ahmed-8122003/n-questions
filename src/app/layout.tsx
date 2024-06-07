@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Urbanist } from "next/font/google";
 import { Toaster } from "sonner";
-import ConvexAndClerkProvider from "./ConvexAndClerkProvider";
+import ConvexAndClerkProvider from "../providers/ConvexAndClerkProvider";
+import ReduxStoreProvider from "../providers/ReduxStoreProvider";
 import "./globals.css";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
@@ -23,7 +24,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={urbanist.className}>
-                <ConvexAndClerkProvider>{children}</ConvexAndClerkProvider>
+                <ConvexAndClerkProvider>
+                    <ReduxStoreProvider>{children}</ReduxStoreProvider>
+                </ConvexAndClerkProvider>
                 <Toaster
                     position="bottom-right"
                     toastOptions={{

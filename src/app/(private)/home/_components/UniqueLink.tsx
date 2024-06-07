@@ -8,14 +8,14 @@ import { useQuery } from "convex/react";
 const UniqueLink = () => {
     const currentUser = useQuery(api.users.currentUser);
 
-    console.log(currentUser);
+    console.log(currentUser?._id);
 
     return (
         <>
             <label className="text-xl">Your unique link</label>
             <div className="flex items-center h-12 relative">
                 <Input
-                    value={`https://n-questions.vercel.app/user/${currentUser?.username}`}
+                    value={`https://n-questions.vercel.app/user/${currentUser?._id}`}
                     disabled
                     className="disabled:opacity-100 disabled:cursor-text"
                 />
