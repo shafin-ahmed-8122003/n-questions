@@ -14,7 +14,7 @@ const HomePage = () => {
 
     return (
         <main className="xl:px-60 lg:px-40 px-4 py-4 flex flex-col gap-2">
-            <Salam />
+            {currentUser && <Salam name={currentUser?.name} />}
             <Gap height={5} />
             <UniqueLink />
             <Gap height={5} />

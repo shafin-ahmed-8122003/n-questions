@@ -1,4 +1,5 @@
-import { query } from "./_generated/server";
+import { v } from "convex/values";
+import { mutation, query } from "./_generated/server";
 
 export const getMessages = query({
     args: {},
@@ -16,6 +17,23 @@ export const getMessages = query({
             .filter((q) => q.eq(q.field("userId"), user?._id))
             .collect();
 
-        return messages;
+        return messages.reverse();
+    },
+});
+
+export const sendMessage = mutation({
+    args: { userId: v.id("users"), message: v.string() },
+    handler: async (ctx, args) => {
+        await ctx.db.insert("messages", {
+            userId: args.userId,
+            question: args.message,
+        });
+    },
+});
+
+export const deleteMessage = mutation({
+    args: { messageId: v.id("messages") },
+    handler: async (ctx, args) => {
+        await ctx.db.delete(args.messageId);
     },
 });

@@ -6,16 +6,10 @@ import Message from "../_components/Message";
 
 const MessagesSection = () => {
     const messages = useQuery(api.messages.getMessages);
+
     return (
         <section className="grid md:grid-cols-2 grid-cols-1 gap-4">
-            {messages &&
-                messages.map((message) => (
-                    <Message
-                        key={message._id}
-                        message={message.question}
-                        createdAt={message._creationTime}
-                    />
-                ))}
+            {messages && messages.map((message) => <Message key={message._id} message={message} />)}
         </section>
     );
 };
