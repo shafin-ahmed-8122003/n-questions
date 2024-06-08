@@ -23,6 +23,7 @@ export const store = mutation({
     args: {},
     handler: async (ctx) => {
         const identity = await ctx.auth.getUserIdentity();
+
         if (!identity) {
             throw new Error("Called storeUser without authentication present");
         }
@@ -50,8 +51,8 @@ export const store = mutation({
 });
 
 export const updateUser = mutation({
-    args: { userId: v.id("users"), updatedUser: v.any() },
+    args: { updatedUser: v.any() },
     handler: async (ctx, args) => {
-        await ctx.db.patch(args.userId, args.updatedUser);
+        await ctx.db.patch(args.updatedUser._id, args.updatedUser);
     },
 });

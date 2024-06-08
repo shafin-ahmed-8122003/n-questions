@@ -7,4 +7,8 @@ export default defineSchema({
         isAcceptingMessage: v.boolean(),
         tokenIdentifier: v.string(),
     }),
+    messages: defineTable({
+        question: v.string(),
+        userId: v.id("users"),
+    }),
 });
