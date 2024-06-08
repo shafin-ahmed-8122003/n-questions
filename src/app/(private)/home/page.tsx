@@ -17,6 +17,11 @@ const HomePage = () => {
             {currentUser && <Salam name={currentUser?.name} />}
             <Gap height={5} />
             <UniqueLink />
+            <p className="text-xs max-sm:text-center">
+                {
+                    "[Turn on 'Accept Messages' and copy this link. Then share the links with your friends. As far as the 'Accept Messages' turned on, then can ask you questions.]"
+                }
+            </p>
             <Gap height={5} />
             {currentUser && <AcceptMessageButton user={currentUser} />}
             <Gap height={5} />

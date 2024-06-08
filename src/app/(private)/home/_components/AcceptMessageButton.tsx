@@ -22,8 +22,8 @@ const AcceptMessageButton = ({ user }: { user: any }) => {
                 <Switch checked={user.isAcceptingMessage} onCheckedChange={checkedChangeHandler} />
                 <p>Accept Messages: {user.isAcceptingMessage ? "On" : "Off"}</p>
             </div>
-            <p className="text-sm max-sm:text-center">
-                [Sometimes you might need to press this button more than once to activate]
+            <p className="text-xs max-sm:text-center">
+                {" [Sometimes you might need to press this button more than once to activate]"}
             </p>
         </div>
     );
