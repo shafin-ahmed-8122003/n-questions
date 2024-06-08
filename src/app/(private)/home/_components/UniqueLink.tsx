@@ -8,8 +8,6 @@ import { useQuery } from "convex/react";
 const UniqueLink = () => {
     const currentUser = useQuery(api.users.currentUser);
 
-    console.log(currentUser?._id);
-
     return (
         <>
             <label className="text-xl">Your unique link</label>

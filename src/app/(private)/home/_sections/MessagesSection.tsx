@@ -10,7 +10,11 @@ const MessagesSection = () => {
         <section className="grid md:grid-cols-2 grid-cols-1 gap-4">
             {messages &&
                 messages.map((message) => (
-                    <Message message={message.question} createdAt={message._creationTime} />
+                    <Message
+                        key={message._id}
+                        message={message.question}
+                        createdAt={message._creationTime}
+                    />
                 ))}
         </section>
     );
