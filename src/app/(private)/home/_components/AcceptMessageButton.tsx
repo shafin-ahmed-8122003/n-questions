@@ -17,9 +17,14 @@ const AcceptMessageButton = ({ user }: { user: any }) => {
     };
 
     return (
-        <div className="flex items-center gap-4">
-            <Switch checked={user.isAcceptingMessage} onCheckedChange={checkedChangeHandler} />
-            <p>Accept Messages: {user.isAcceptingMessage ? "On" : "Off"}</p>
+        <div className="flex flex-col justify-center max-sm:items-center gap-4">
+            <div className="flex items-center gap-4">
+                <Switch checked={user.isAcceptingMessage} onCheckedChange={checkedChangeHandler} />
+                <p>Accept Messages: {user.isAcceptingMessage ? "On" : "Off"}</p>
+            </div>
+            <p className="text-sm max-sm:text-center">
+                [Sometimes you might need to press this button more than once to activate]
+            </p>
         </div>
     );
 };
