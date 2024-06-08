@@ -11,11 +11,11 @@ const buttonVariants = cva(
                 primary: "bg-primary text-primary-foreground hover:bg-primary/90",
                 primaryOutline:
                     "bg-transparent border-primary-foreground border-2 text-primary-foreground hover:bg-primary-foreground hover:text-primary",
-                link: "bg-transparent text-foreground",
+                link: "bg-transparent text-foreground border-b-2 border-foreground",
             },
             size: {
                 default: "h-10 px-4 py-2",
-                link: "rounded-none border-b-2 border-foreground py-2 max-h-0 text-md",
+                link: "rounded-none py-2 max-h-0 text-md",
                 lg: "h-12 px-4 py-2",
             },
         },

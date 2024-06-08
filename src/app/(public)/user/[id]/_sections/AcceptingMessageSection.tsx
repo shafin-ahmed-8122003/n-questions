@@ -1,11 +1,13 @@
 "use client";
 
 import { api } from "@/convex/_generated/api";
+import Gap from "@/src/components/Gap";
 import Salam from "@/src/components/Salam";
 import { Button } from "@/src/components/ui/button";
 import { Label } from "@/src/components/ui/label";
 import { Textarea } from "@/src/components/ui/textarea";
 import { useMutation } from "convex/react";
+import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -24,8 +26,8 @@ const AcceptingMessageSection = ({ user }: { user: any }) => {
     };
 
     return (
-        <main className="xl:px-60 lg:px-40 px-4 py-4 h-full">
-            <section className="flex flex-col justify-center h-full gap-4">
+        <main className="xl:px-60 lg:px-40 px-4 py-4 h-full relative flex flex-col items-center justify-center">
+            <section className="flex flex-col flex-1 justify-center h-full gap-4">
                 <Salam name="Human" />
                 <div className="flex flex-col w-full gap-2">
                     <Label className="text-lg" htmlFor="message">
@@ -45,6 +47,16 @@ const AcceptingMessageSection = ({ user }: { user: any }) => {
                         Send message
                     </Button>
                 </div>
+            </section>
+            <section className="p-0 flex flex-col justify-center items-center">
+                <p>Want to create your own?</p>
+                <Link href="/">
+                    <Button size="link" variant="link">
+                        Click Here
+                    </Button>
+                </Link>
+                <Gap height={15} />
+                <p className="opacity-60">This webapp is made by Shafin</p>
             </section>
         </main>
     );
