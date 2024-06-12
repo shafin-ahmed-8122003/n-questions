@@ -23,7 +23,7 @@ const UniqueLink = () => {
                         <Button
                             onClick={() =>
                                 copyText(
-                                    `https://n-questions.vercel.app/user/${currentUser._id}`,
+                                    `🎉 Hey there!\nGot a question for me?\nAsk away—completely anonymously! 🤫\n👉 https://n-questions.vercel.app/user/${currentUser._id}`,
                                     "URL Copied"
                                 )
                             }

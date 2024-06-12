@@ -21,18 +21,29 @@ const Message = ({ message }: { message: any }) => {
 
     const handleCaptureClick = async () => {
         if (captureRef.current) {
+            const notCaptureDiv = document.getElementById("not-capture");
+            const captureDiv = document.getElementById("capture");
+            notCaptureDiv?.classList.add("hidden");
+            captureDiv?.classList.replace("hidden", "flex");
+
             const canvas = await html2canvas(captureRef.current);
             const imgData = canvas.toDataURL("image/png");
             const link = document.createElement("a");
             link.href = imgData;
             link.download = "screenshot.png";
             link.click();
+
+            notCaptureDiv?.classList.remove("hidden");
+            captureDiv?.classList.add("hidden");
         }
     };
 
     return (
         <div ref={captureRef} className="p-1">
-            <div className="w-full min-h-[150px] border-2 border-primary rounded-lg flex flex-col justify-between p-4">
+            <div
+                id="not-capture"
+                className="w-full min-h-[150px] border-2 border-primary rounded-lg flex flex-col justify-between p-4"
+            >
                 <h2 className="lg:text-xl text-lg">{message.question}</h2>
                 <Gap height={10} />
                 <div className="flex items-center justify-between">
@@ -48,6 +59,13 @@ const Message = ({ message }: { message: any }) => {
                         </Button>
                     </div>
                 </div>
+            </div>
+            <div
+                id="capture"
+                className="w-full min-h-[150px] border-2 border-primary rounded-lg flex-col justify-center items-center p-4 relative hidden"
+            >
+                <h2 className="lg:text-xl text-lg">{message.question}</h2>
+                <p className="absolute bottom-2 opacity-30">N-Questions</p>
             </div>
         </div>
     );
