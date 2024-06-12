@@ -64,7 +64,7 @@ const Message = ({ message }: { message: any }) => {
                 id="capture"
                 className="w-full min-h-[150px] border-2 border-primary rounded-lg flex-col justify-center items-center p-4 relative hidden"
             >
-                <h2 className="lg:text-xl text-lg">{message.question}</h2>
+                <h2 className="lg:text-xl text-lg text-center">{message.question}</h2>
                 <p className="absolute bottom-2 opacity-30">N-Questions</p>
             </div>
         </div>
